@@ -1,24 +1,25 @@
-name: Python CI
+name: Python Lint CI
 
 on: [push]
 
 jobs:
-  test12:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code12
+      - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Setup Python12
+      - name: Setup Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - name: Install dependencies12
-        run: pip install pytest
+      - name: Install dependencies
+        run: pip install pytest flake8
 
-      - name: Run tests12
+      - name: Lint code
+        run: flake8 .
+
+      - name: Run tests
         run: pytest
-
-
