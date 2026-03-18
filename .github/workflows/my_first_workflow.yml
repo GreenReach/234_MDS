@@ -1,0 +1,24 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+  test12:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code12
+        uses: actions/checkout@v6
+
+      - name: Setup Python12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies12
+        run: pip install pytest
+
+      - name: Run tests12
+        run: pytest
+
+
